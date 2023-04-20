@@ -36,7 +36,7 @@ def add_product():
 
 
 # PUT Request - http://localhost:5000/products/144 - with PUT method
-@app.route('/products/<id>', method=[PUT])
+@app.route('/products/<id>', method=['PUT'])
 def update_product(id):
     id = int(id)
     update_product = json.loads(request.data)
