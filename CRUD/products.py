@@ -45,4 +45,12 @@ def update_product(id):
         product[key] = value
     return '', 204
 
+# DELETE endpoint request - http://localhost:5000/products/144
+@app.route('/products/<id>', methods=['DELETE'])
+def remove_product(id):
+    id = int(id)
+    product = [x for x in products if x["id"] == id][0]
+    products.remove(product)
+    return '', 204
+
 app.run(port=5000,debug=True)
