@@ -20,4 +20,10 @@ def get_products():
     return jsonify(products)
 
 
+@app.route('/products/<id>', methods=['GET'])
+def get_product(id):
+    id = int(id)
+    product = [x for x in products if x["id"] == id][0]
+    return jsonify(product)
+
 app.run(port=5000,debug=True)
