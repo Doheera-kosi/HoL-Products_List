@@ -35,4 +35,14 @@ def add_product():
     return '', 201
 
 
+# PUT Request - http://localhost:5000/products/144 - with PUT method
+@app.route('/products/<id>', method=[PUT])
+def update_product(id):
+    id = int(id)
+    update_product = json.loads(request.data)
+    product = [x for x in products if x["id"] == id][0]
+    for key, value in update_product.items():
+        product[key] = value
+    return '', 204
+
 app.run(port=5000,debug=True)
