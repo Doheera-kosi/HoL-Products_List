@@ -20,7 +20,7 @@ def get_products():
     return jsonify(products)
 
 
-# GET request - http://localhost:5000/product/144 - with method GET 
+# GET request - http://localhost:5000/products/144 - with method GET 
 @app.route('/products/<id>', methods=['GET'])
 def get_product(id):
     id = int(id)
